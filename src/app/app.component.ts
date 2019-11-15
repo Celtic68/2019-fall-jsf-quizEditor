@@ -97,6 +97,10 @@ export class AppComponent implements OnInit {
     x.then(
       n => {
         console.log(n);
+
+        const y = this.qSvc.getMagicNumberPromise(true);
+        console.log(y);
+        y.then(n => console.log(n))
       }
     )
   }
