@@ -109,6 +109,8 @@ export class AppComponent implements OnInit {
     
     const x = await this.qSvc.getMagicNumberPromise(true);
     console.log(x);
-    
+
+    const y = await this.qSvc.getMagicNumberPromise(true);
+    console.log(y);
   }
 }
