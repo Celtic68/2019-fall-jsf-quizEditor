@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ReflectiveInjector } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -17,5 +17,14 @@ export class QuizService {
     //   , { name: "Quiz 2", questionCount: 0 }
     //   , { name: "Quiz 3", questionCount: 25 }
     // ];
+  }
+
+  getMagicNumberPromise(makeThisPromiseSucceed: boolean): Promise<number>{
+    let p = new Promise<number> (
+      (resolve, reject) => makeThisPromiseSucceed ? resolve(42) : reject("Failed!")
+    );
+
+    return p;
+    
   }
 }
