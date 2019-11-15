@@ -129,13 +129,12 @@ export class AppComponent implements OnInit {
       console.log(y);
 
       const results = await Promise.all([x, y]);
+      // const results = await Promise.race([x, y]);
       console.log(results);
-      
+
     } catch (err) {
       console.error(err);
     }
-
-    
 
   }
 }
