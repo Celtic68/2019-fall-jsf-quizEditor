@@ -91,7 +91,7 @@ export class AppComponent implements OnInit {
   }
 
   jsPromise1() {
-    const x = this.qSvc.getMagicNumberPromise(true);
+    const x = this.qSvc.getMagicNumberPromise(false);
     console.log(x);
 
     x.then(
@@ -102,6 +102,6 @@ export class AppComponent implements OnInit {
         console.log(y);
         y.then(n => console.log(n))
       }
-    )
+    ).catch(err => console.error(err))
   }
 }
