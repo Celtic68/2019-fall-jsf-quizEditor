@@ -107,10 +107,15 @@ export class AppComponent implements OnInit {
 
   async jsPromisesTwo() {
     
-    const x = await this.qSvc.getMagicNumberPromise(true);
-    console.log(x);
+    try {
+      const x = await this.qSvc.getMagicNumberPromise(false);
+      console.log(x);
 
-    const y = await this.qSvc.getMagicNumberPromise(true);
-    console.log(y);
+      const y = await this.qSvc.getMagicNumberPromise(true);
+      console.log(y);
+    } catch (err) {
+      console.error(err);
+    }
+    
   }
 }
