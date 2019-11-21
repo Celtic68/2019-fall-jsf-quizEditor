@@ -135,6 +135,16 @@
                   [class.text-danger]="selectedQuiz.markedForDelete">Marked For Delete</label>
             </div>
           </div>
+          <div class="card-body">
+            <div class="form-check">
+              <ng-template #popContent><span *ngIf="selectedQuiz.questions.length == 0; else elseBlock">0</span>
+                  <ng-template #elseBlock>{{ selectedQuiz.questions.length -1 }}</ng-template> out of {{ selectedQuiz.questions.length }}</ng-template>
+              <ng-template #popTitle>Results for <b>{{ selectedQuiz.name }}</b> Quiz</ng-template>
+              <button type="button" class="btn btn-outline-secondary" [ngbPopover]="popContent" triggers="mouseenter:mouseleave" [popoverTitle]="popTitle">
+                Final Results for the quiz!!
+              </button>
+            </div>
+          </div>
         </div>
       </div>
   </div>
