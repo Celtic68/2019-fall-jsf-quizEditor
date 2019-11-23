@@ -185,11 +185,20 @@ export class AppComponent implements OnInit {
         && !x.markedForDelete);
   }
 
-  saveBatchEdits() {
+  getQuestions(y: QuestionDisplay[]) {
+    return y.map(x => x.name);
+  }
 
+  getNewQuizzes() {
+    return this.quizzes.filter(x => x.newlyAddedQuiz && !x.markedForDelete)
+      .map(y => ({ "quizName": y.name, "quizQuestions": this.getQuestions(y.questions)}));
+  }
+
+  saveBatchEdits() {
+    
     this.qSvc.saveQuizzes(
       this.getEditedQuizzes(),
-      []
+      this.getNewQuizzes()
     ).subscribe(
       data => console.log('Number of edited quizzes submitted: ' + data),
       err => console.error(err)
