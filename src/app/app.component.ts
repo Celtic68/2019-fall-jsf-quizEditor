@@ -107,7 +107,7 @@ export class AppComponent implements OnInit {
 
   selectQuiz(q) {
     this.selectedQuiz = q;
-    console.log(this.selectedQuiz.name);
+    this.detailsAnimationState = 'finalPosition';
   }
 
   addNewQuiz() {
@@ -233,6 +233,12 @@ export class AppComponent implements OnInit {
       data => console.log('Number of edited quizzes submitted: ' + data),
       err => console.error(err)
     );
+  }
+
+  detailsAnimationState = 'leftPosition';
+
+  detailsAnimationComplete() {
+    this.detailsAnimationState = 'leftPosition';
   }
 
 }
