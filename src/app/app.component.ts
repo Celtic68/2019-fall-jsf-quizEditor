@@ -38,7 +38,7 @@ interface QuestionDisplay {
     ]),
     trigger('pulseSaveCancelButtons', [
       transition('nothingToSave => somethingToSave', [
-        animate('400ms', keyframes([
+        animate('800ms', keyframes([
           style({ transform: 'scale(1.0)', 'transform-origin': 'top left', offset: 0.0 }),
           style({ transform: 'scale(1.2)', 'transform-origin': 'top left', offset: 0.5 }),
           style({ transform: 'scale(1.0)', 'transform-origin': 'top left', offset: 1.0 })
